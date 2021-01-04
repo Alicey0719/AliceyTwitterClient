@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,8 @@ import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.tweetcomposer.ComposerActivity;
 
+import java.sql.Time;
+
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,PageFragment.OnFragmentInteractionListener,View.OnClickListener
 {
@@ -27,8 +30,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     SearchView searchView;
 
     // リストタイトル配列
-    final String[] pageTitle = {"Home", "List", "Search", "User", "Test","Config" };
+    final String[] pageTitle = {"Home", "List", "Search", "User", "Config" };
     String searchWord = "" ;
+    TimeLinePrevFragment[] p = new TimeLinePrevFragment[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,8 +63,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             public boolean onQueryTextSubmit(String query)
             {
                 //TimeLinePrevFragment.searchWordInput(query);
-                searchWord = query;
-                //getFragmentManager().beginTransaction().remove(p3).commit();
+                //searchWord = query;
+                p[2].searchWordInput(query);
+                //TimeLinePrevFragment fragment = FragmentManager.getFragments();
+
+
+
                 return false;
             }
 
@@ -85,40 +93,42 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                     switch (position)
                     {
                         case 0:
-                            TimeLinePrevFragment p0 = new TimeLinePrevFragment();
-                            p0.tl_syurui = "home";
-                            p0.KeyWord = "null";
-                            return p0;
+                            p[0] = new TimeLinePrevFragment();
+                            p[0].tl_syurui = "home";
+                            p[0].KeyWord = "null";
+                            return p[0];
                             //return TimeLinePrevFragment.newInstance("home","null");
                         case 1:
-                            TimeLinePrevFragment p1 = new TimeLinePrevFragment();
-                            p1.tl_syurui = "list";
-                            p1.KeyWord = "list4";
-                            return p1;
+                            p[1] = new TimeLinePrevFragment();
+                            p[1].tl_syurui = "list";
+                            p[1].KeyWord = "list4";
+                            return p[1];
                             //return TimeLinePrevFragment.newInstance("list","list3");
 
                         case 2:
-                            TimeLinePrevFragment p2 = new TimeLinePrevFragment();
-                            p2.tl_syurui = "search";
-                            p2.KeyWord = searchWord;
-                            return p2;
+                            p[2] = new TimeLinePrevFragment();
+                            p[2].tl_syurui = "search";
+                            p[2].KeyWord = "";
+                            return p[2];
                            //return TimeLinePrevFragment.newInstance("search",searchWord);
 
                         case 3:
-                            TimeLinePrevFragment p3 = new TimeLinePrevFragment();
-                            p3.tl_syurui = "user";
-                            p3.KeyWord = "yuzusoft";
-                            return p3;
+                            p[3] = new TimeLinePrevFragment();
+                            p[3].tl_syurui = "user";
+                            p[3].KeyWord = "KST_BC_";
+                            return p[3];
                            //return TimeLinePrevFragment.newInstance("user","yuzusoft");
 
+                        /*
                         case 4:
-                            TimeLinePrevFragment p4 = new TimeLinePrevFragment();
-                            p4.tl_syurui = "test";
-                            p4.KeyWord = "null";
-                            return p4;
+                            p[4] = new TimeLinePrevFragment();
+                            p[4].tl_syurui = "test";
+                            p[4].KeyWord = "null";
+                            return p[4];
                            // return TimeLinePrevFragment.newInstance("test","null");
+                           */
 
-                        case 5:
+                        case 4:
                             return SettingFragment.newInstance();
 
 

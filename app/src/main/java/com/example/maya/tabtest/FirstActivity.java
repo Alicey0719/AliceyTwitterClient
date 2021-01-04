@@ -13,13 +13,8 @@ import com.twitter.sdk.android.core.TwitterConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 
 
-
-
 public class FirstActivity extends AppCompatActivity
 {
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,8 +46,6 @@ public class FirstActivity extends AppCompatActivity
         }
         else
         {
-            //Toast toast = Toast.makeText(FirstActivity.this, "ログイン中", Toast.LENGTH_LONG);
-            //toast.show();
 
             Intent intent = new Intent(FirstActivity.this, MainActivity.class);
             startActivity(intent);
@@ -60,29 +53,6 @@ public class FirstActivity extends AppCompatActivity
             finish();
         }
 
-/*
-
-        if (check == 1)
-        {
-            Intent intent = new Intent (FirstActivity.this , MainActivity.class);
-            startActivity(intent);
-
-            finish();
-
-        }
-        else
-        {
-            Intent intent = new Intent(FirstActivity.this, LoginActivity.class);
-            startActivity(intent);
-
-            finish();
-
-        }*/
-
-
     }
-
-
-
 
 }

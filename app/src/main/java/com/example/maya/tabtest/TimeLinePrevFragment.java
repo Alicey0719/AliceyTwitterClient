@@ -34,6 +34,9 @@ public class TimeLinePrevFragment extends ListFragment
     SearchTimeline searchTimeline;
     UserTimeline userTimeline;
     ListView listView;
+    TweetTimelineListAdapter adapter = null;
+
+
     int list_position = 1;
     public String tl_syurui;
     public String KeyWord;
@@ -176,7 +179,7 @@ public class TimeLinePrevFragment extends ListFragment
         }
        // else
        // {
-            //???????????????????????????
+            //
             //throw new RuntimeException(context.toString()
             //        + " must implement OnFragmentInteractionListener");
        // }
@@ -217,9 +220,7 @@ public class TimeLinePrevFragment extends ListFragment
     public TweetTimelineListAdapter SelectTimeLine(String select)
     {
 
-
-
-        TweetTimelineListAdapter adapter = null;
+        //TweetTimelineListAdapter adapter = null;
 
         if (KeyWord == null)
         {
@@ -315,7 +316,14 @@ public class TimeLinePrevFragment extends ListFragment
     {
         KeyWord = w;
         flag_adp = 0;
+        TweetTimelineListAdapter adapter = SelectTimeLine(tl_syurui);
+        setListAdapter(adapter);
 
+    }
+
+    public void fragmentFinish()
+    {
+        getFragmentManager().beginTransaction().remove(this).commit();
     }
 
 

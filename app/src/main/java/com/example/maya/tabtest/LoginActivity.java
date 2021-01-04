@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void failure(TwitterException exception)
             {
-                Toast toast = Toast.makeText(LoginActivity.this, "ログイン失敗", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(LoginActivity.this, "ログイン失敗:"+exception, Toast.LENGTH_LONG);
                 toast.show();
             }
         });
