@@ -2,11 +2,10 @@
     <string name="app_name">アオイトリ</string>
 
     //TwitterAPIKey
-    <string name="consumer_key">K0kNaLKmikuw20PywtoyNyh4r</string>
     //consumer_key
-    <string name="consumer_secret">79kWAi6j1nS6q0MiVK2yz6Vy8Jcnv8KyNRDNg3ZTkmz4l8uNck
-</string>
+    <string name="consumer_key">コンシューマキーを入れてください</string>
     //consumer_secret
+    <string name="consumer_secret">コンシューマシークレットを入れてください。</string>
 
     <string name="title_activity_time_line">TimeLineActivity</string>
     <string name="no_tweet_on_timeline">Tweet Loading</string>
